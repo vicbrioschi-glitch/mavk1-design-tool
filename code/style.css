@@ -1,8 +1,167 @@
-html, body {
-  margin: 0;
-  padding: 0;
+* { 
+  box-sizing: border-box; 
 }
 
-canvas {
-  display: block;
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  font-family: verdana, sans-serif;
 }
+
+canvas { display: block; }
+
+/* ---------- Panneau de droite ---------- */
+#panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 240px;               /* doit correspondre à PANEL_W dans sketch.js */
+  height: 100%;
+  padding: 18px 16px 30px;
+  overflow-y: auto;
+  background: rgb(0, 0, 0);
+ 
+  color: white;
+  font-size: 12px;
+  z-index: 10;
+  transition: transform 0.3s ease;
+}
+
+body.closed #panel {
+  transform: translateX(100%);
+}
+
+#panel h1 {
+  margin: 0 0 6px;
+  font-size: 15px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+#panel section {
+  padding: 20px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.225);
+}
+
+#panel h2 {
+  margin: 0 0 8px;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+#panel label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  color: #fcfcfc;
+}
+
+output {
+  color: #888;
+  font-variant-numeric: tabular-nums;
+}
+
+
+body.closed #panel {
+  transform: translateX(100%);
+}
+
+#panel header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#close {
+  background: black;
+  border: 1px solid black;
+  font-size: 20px;
+
+  
+  right: 12px;
+  padding: 12px 12px;
+  color: #eee;
+  cursor: pointer;
+
+  display: flex;
+  position: absolute;
+
+ 
+}
+#close:hover { 
+  color: #ff00ea; 
+}
+
+#open {
+  border: 1px solid black;
+  font-size: 20px;
+
+  
+  right: 12px;
+  padding: 12px 12px;
+  color: #eee;
+  cursor: pointer;
+
+  display: flex;
+  position: fixed;
+}
+#open:hover { 
+  color: #ff00ea; 
+}
+body.closed #open { display: block; }
+
+/* sliders : on laisse le style par défaut du navigateur */
+input[type="range"] {
+  width: 100%;
+  margin: 6px 0 2px;
+}
+
+/* ---------- Cases à cocher ---------- */
+#panel label.check {
+  justify-content: flex-start;
+  gap: 8px;
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+  accent-color: #f4a261;
+  width: 14px;
+  height: 14px;
+  margin: 0;
+}
+
+/* ---------- Sélecteurs de couleur ---------- */
+.color-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+}
+.color-row label { margin: 0; }
+
+input[type="color"] {
+  width: 25px;
+  height: 25px;
+  padding: 0;
+  background: none;
+  border: 1px solid white;
+  border-radius: 25px;
+  cursor: pointer;
+}
+input[type="color"]::-webkit-color-swatch-wrapper { padding: 2px; }
+input[type="color"]::-webkit-color-swatch { border: none; border-radius: 2px; }
+
+/* ---------- Scrollbar discrète ---------- */
+#panel::-webkit-scrollbar { width: 6px; }
+#panel::-webkit-scrollbar-thumb { background: #3a3a40; border-radius: 3px; }
+
+
+
+
+
+
+

@@ -13,6 +13,52 @@
   </head>
 
   <body>
+   <body>
+
+  <div id="open">✕</div>
+
+  <div id="panel">
+    <header>
+      <h1>Réglages</h1>
+      <button id="close" aria-label="Fermer le menu">✕</button>
+    </header>
+
+    <section>
+      <h2>Forme</h2>
+
+      <label for="size">Taille du cercle <output for="size"></output></label>
+      <input type="range" id="size" min="20" max="200" step="1" value="60">
+
+
+      <label for="dotSize">Taille des points <output for="dotSize"></output></label>
+      <input type="range" id="dotSize" min="5" max="80" step="1" value="25">
+
+      <label for="sens">Sensibilité <output for="sens"></output></label>
+      <input type="range" id="sens" min="0.2" max="3" step="0.05" value="1">
+
+      <label for="smooth">Lissage FFT <output for="smooth"></output></label>
+      <input type="range" id="smooth" min="0" max="0.95" step="0.01" value="0.8">
+
+      <label for="threshold">Seuil détection voix <output for="threshold"></output></label>
+      <input type="range" id="threshold" min="0" max="1" step="0.01" value="0.45">
+    </section>
+
+    <section>
+      <h2>Couches</h2>
+      <label class="check"><input type="checkbox" id="showBass" checked> Cercle (basses)</label>
+    </section>
+
+    <section>
+      <h2>Couleurs</h2>
+      <div class="color-row"><label for="bg">Fond</label><input type="color" id="bg" value="white"></div>
+      <div class="color-row"><label for="bgVoice">Fond (voix détectée)</label><input type="color" id="bgVoice" value="black"></div>
+      <div class="color-row"><label for="cBass">Cercle (basses)</label><input type="color" id="cBass" value="#ff00ea"></div>
+     
+    </section>
+  </div>
+
+</body>
+
     <script src="sketch.js"></script>
   </body>
 </html>
