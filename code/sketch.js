@@ -6,17 +6,10 @@ let panelCur = PANEL_W;
 let sBass = 0, sVoice = 0;
 let voiceMix = 0;
 
-// Points aléatoires : angle + distance relative (0 → 1)
-const NB_DOTS = 40;
-let dots = [];
 
 async function setup() {
   createCanvas(windowWidth, windowHeight);
   buildPanel();
-
-  for (let i = 0; i < NB_DOTS; i++) {
-    dots.push({ a: random(TWO_PI), r: random(1), e: 0 });
-  }
 
   soundfile = await loadSound('/code/son/queen.mov');
   fft = new p5.FFT(0.8, 1024);
@@ -68,7 +61,7 @@ function draw() {
 
 }
 
-/* ---------- Panneau (HTML) ---------- */
+//panneau droite
 
 function buildPanel() {
   const el  = id => document.getElementById(id);
@@ -76,14 +69,19 @@ function buildPanel() {
   const str = id => ({ value: () => el(id).value });
   const chk = id => ({ checked: () => el(id).checked });
 
-  ui.size = num('size');       ui.zone = num('zone');
-  ui.dotSize = num('dotSize'); ui.sens = num('sens');
-  ui.smooth = num('smooth');   ui.threshold = num('threshold');
+  ui.size = num('size');       
+  ui.zone = num('zone');
+  ui.sens = num('sens');
+  ui.smooth = num('smooth');   
+  ui.threshold = num('threshold');
 
-  ui.showBass = chk('showBass');   ui.showTreble = chk('showTreble');
+  ui.showBass = chk('showBass');   
+  ui.showTreble = chk('showTreble');
 
-  ui.bg = str('bg');           ui.bgVoice = str('bgVoice');
-  ui.cBass = str('cBass');     ui.cTreble = str('cTreble');
+  ui.bg = str('bg');           
+  ui.bgVoice = str('bgVoice');
+  ui.cBass = str('cBass');     
+  ui.cTreble = str('cTreble');
 
   document.querySelectorAll('input[type="range"]').forEach(r => {
     const out = document.querySelector(`output[for="${r.id}"]`);
@@ -92,7 +90,7 @@ function buildPanel() {
     update();
   });
 
-  // Fermer / rouvrir
+  // fermeture panneau
   const setPanel = open => {
     panelOpen = open;
     document.body.classList.toggle('closed', !open);

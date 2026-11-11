@@ -78,7 +78,7 @@ body.closed #panel {
 
 #close {
   background: black;
-  border: 1px solid black;
+  border: 0px ;
   font-size: 20px;
 
   
@@ -97,13 +97,13 @@ body.closed #panel {
 }
 
 #open {
-  border: 1px solid black;
+  border: 0px;
   font-size: 20px;
 
   
   right: 12px;
   padding: 12px 12px;
-  color: #eee;
+  color: black;
   cursor: pointer;
 
   display: flex;
